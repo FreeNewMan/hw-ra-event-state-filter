@@ -84,9 +84,13 @@ class Portfolio extends React.Component {
           selected={this.state.selected}
           onSelectFilter={(filter) => {
             this.setState({ selected: filter });
-            if (filter !== 'All')
-              {this.setState({ filteredProjects: projects.filter(function(item) {return item.category === filter}) })}
-            else { this.setState({filteredProjects: projects })}
+            if (filter !== 'All'){
+                let filterProjects = projects.filter(function(item) {return item.category === filter});
+                this.setState({ filteredProjects: filterProjects })
+              }
+            else { 
+              this.setState({filteredProjects: projects })
+            }
             console.log(filter)
           }} />
        <div className="portfolio">
